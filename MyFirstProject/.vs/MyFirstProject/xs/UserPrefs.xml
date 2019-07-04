@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{79A912D3-66B9-DDF3-6203-61A74A7F619F}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/MyFirstScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/Character.cs">
     <Files>
       <File FileName="Assets/_Scripts/MyFirstScript.cs" Line="26" Column="31" />
       <File FileName="Assets/_Scripts/Character.cs" Line="18" Column="24" />
