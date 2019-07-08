@@ -64,6 +64,9 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\Character.cs" />
     <Compile Include="Assets\_Scripts\MyFirstScript.cs" />
+    <None Include="Assets\Sprites\mp_crimintent\license.txt" />
+    <None Include="Assets\Sprites\mp_crimintent\mp_crimintent.shader" />
+    <None Include="Assets\Sprites\mp_crimintent\Criminal Intentions.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/JuanGabriel/Developer/Unity Projects/cursos-unity-2019/MyFirstProject/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
