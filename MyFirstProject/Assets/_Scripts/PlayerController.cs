@@ -19,6 +19,13 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody _rb;
 
+
+    public float distanceToGround = 0.1f;
+
+    public LayerMask groundLayer;
+
+    private CapsuleCollider _col;
+
     //Métodos
 
     // Start is called before the first frame update
@@ -27,6 +34,8 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         currentMoveSpeed = moveSpeed;
         currentRotateSpeed = rotateSpeed;
+
+        _col = GetComponent<CapsuleCollider>();
 
     }
 
@@ -54,7 +63,7 @@ public class PlayerController : MonoBehaviour
         this.transform.Rotate(hInput * Time.deltaTime * Vector3.up);
         */
 
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(IsOnTheGround() && Input.GetKeyDown(KeyCode.Space)){
             _rb.AddForce(Vector3.up * jumpSpeed,ForceMode.Impulse);
         }
 
@@ -70,5 +79,23 @@ public class PlayerController : MonoBehaviour
         _rb.MovePosition(this.transform.position +
                          this.transform.forward * vInput * Time.fixedDeltaTime);
         _rb.MoveRotation(_rb.rotation * angleRot);
+    }
+
+    /// <summary>
+    /// Comprueba si el personaje está tocando el suelo
+    /// </summary>
+    /// <returns><c>true</c>, si está tocando el suelo, 
+    /// <c>false</c> si no.</returns>
+    bool IsOnTheGround(){
+        //Calculo 
+        Vector3 capsuleBottom = new Vector3(_col.bounds.center.x,
+                                            _col.bounds.min.y,
+                                            _col.bounds.center.z);
+        bool onTheGround = Physics.CheckCapsule(_col.bounds.center,
+                                                capsuleBottom,
+                                                distanceToGround,
+                                                groundLayer,
+                                                QueryTriggerInteraction.Ignore);
+        return onTheGround;
     }
 }
