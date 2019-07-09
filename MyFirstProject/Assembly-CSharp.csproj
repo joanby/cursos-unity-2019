@@ -62,8 +62,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\Character.cs" />
+    <Compile Include="Assets\_Scripts\EnemyBehaviour.cs" />
+    <Compile Include="Assets\_Scripts\ItemPickup.cs" />
     <Compile Include="Assets\_Scripts\MyFirstScript.cs" />
+    <Compile Include="Assets\_Scripts\PlayerController.cs" />
     <None Include="Assets\Sprites\mp_crimintent\license.txt" />
     <None Include="Assets\Sprites\mp_crimintent\mp_crimintent.shader" />
     <None Include="Assets\Sprites\mp_crimintent\Criminal Intentions.txt" />
