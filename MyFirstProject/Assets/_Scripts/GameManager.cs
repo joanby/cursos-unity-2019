@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
 
     public string labelText = "Recolecta los 4 ítems y gánate la libertad!";
-    public int maxItems = 4;
+    public const int MAX_ITEMS = 4;
 
     public bool showWinScreen = false;
+    public bool showLossScreen = false;
 
     /*private string _firstName;
     public string FirstName { 
@@ -33,13 +33,11 @@ public class GameManager : MonoBehaviour
         set{
             _itemsCollected = value;
 
-            if (_itemsCollected >= maxItems){
-                labelText = "Has encontrado todos los ítems";
-                showWinScreen = true;
-                Time.timeScale = 0;
+            if (_itemsCollected >= MAX_ITEMS){
+                GameOver(true);
             }else{
                 labelText = "Ítem encontrado, te faltan: " + 
-                    (maxItems - _itemsCollected);
+                    (MAX_ITEMS - _itemsCollected);
             }
         }
     }
@@ -55,8 +53,21 @@ public class GameManager : MonoBehaviour
             {
                 _playerHP = value;
             }
+
+            if(_playerHP<=0){
+                GameOver(false);
+            }else{
+                labelText = "Ouch, me han dado...";
+            }
             Debug.LogFormat("Vidas: {0}", _playerHP);
         }
+    }
+
+    private void GameOver(bool gameWon){
+        labelText = gameWon?"Has encontrado todos los ítems": "Has muerto... Prueba otra vez";
+        showWinScreen = gameWon;
+        showLossScreen = !gameWon;
+        Time.timeScale = 0;
     }
 
 
@@ -74,14 +85,23 @@ public class GameManager : MonoBehaviour
 
         if(showWinScreen)
         {
-            if(GUI.Button(new Rect(Screen.width/2-200, 
-                                   Screen.height/2-100, 
-                                   400, 200),
-                          "¡¡HAS GANADO!!")){
-                //Lo que queremos ejecutar si se pulsa el botón
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                Time.timeScale = 1;
-            }
+            ShowEndLevel("Enhorabuena, Has Ganado!");
+        }
+
+        if(showLossScreen){
+            ShowEndLevel("GAME OVER");
         }
     }
+
+
+    private void ShowEndLevel(string message){
+        if (GUI.Button(new Rect(Screen.width / 2 - 200,
+                                   Screen.height / 2 - 100,
+                                   400, 200),
+                          message))
+        {
+            Utilities.RestartLevel();
+        }
+    }
+
 }

@@ -69,7 +69,9 @@
     <Compile Include="Assets\_Scripts\GameManager.cs" />
     <Compile Include="Assets\_Scripts\ItemPickup.cs" />
     <Compile Include="Assets\_Scripts\MyFirstScript.cs" />
+    <Compile Include="Assets\_Scripts\MySecondScript.cs" />
     <Compile Include="Assets\_Scripts\PlayerController.cs" />
+    <Compile Include="Assets\_Scripts\Utilities.cs" />
     <None Include="Assets\Sprites\mp_crimintent\license.txt" />
     <None Include="Assets\Sprites\mp_crimintent\mp_crimintent.shader" />
     <None Include="Assets\Sprites\mp_crimintent\Criminal Intentions.txt" />
