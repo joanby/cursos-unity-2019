@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour
 
     private CapsuleCollider _col;
 
+    public GameObject bullet;
+    public Transform shootPoint;
+    public float bulletSpeed = 100f;
+
     //Métodos
 
     // Start is called before the first frame update
@@ -63,6 +67,18 @@ public class PlayerController : MonoBehaviour
         this.transform.Rotate(hInput * Time.deltaTime * Vector3.up);
         */
 
+        if(Input.GetMouseButtonDown(0))
+        {
+            GameObject newBullet = Instantiate(bullet,
+                                               shootPoint.position,
+                                               shootPoint.rotation) as GameObject;
+
+            Rigidbody bulletRB = newBullet.GetComponent<Rigidbody>();
+
+            bulletRB.velocity = shootPoint.forward * bulletSpeed;
+        }
+
+
         if(IsOnTheGround() && Input.GetKeyDown(KeyCode.Space)){
             _rb.AddForce(Vector3.up * jumpSpeed,ForceMode.Impulse);
         }
@@ -96,6 +112,7 @@ public class PlayerController : MonoBehaviour
                                                 distanceToGround,
                                                 groundLayer,
                                                 QueryTriggerInteraction.Ignore);
+
         return onTheGround;
     }
 }
