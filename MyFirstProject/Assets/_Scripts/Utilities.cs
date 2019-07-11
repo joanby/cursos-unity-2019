@@ -26,6 +26,13 @@ public static class Utilities
     /// </summary>
     /// <param name="buildIndex">Index of the scene to be restarted</param>
     public static void RestartLevel(int buildIndex){
+        if(buildIndex < 0){
+            throw new System.ArgumentException("El índice de la escena no puede ser negativo");
+        }
+        if(buildIndex>=SceneManager.sceneCount){
+            throw new System.ArgumentException("El índice de la escena no existe");
+        }
+
         SceneManager.LoadScene(buildIndex);
         Time.timeScale = 1.0f;
     }

@@ -62,11 +62,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\BaseManager.cs" />
+    <Compile Include="Assets\_Scripts\BattleManager.cs" />
     <Compile Include="Assets\_Scripts\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\Character.cs" />
+    <Compile Include="Assets\_Scripts\CustomExtensions.cs" />
     <Compile Include="Assets\_Scripts\DestroyAfterTime.cs" />
     <Compile Include="Assets\_Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\_Scripts\GameManager.cs" />
+    <Compile Include="Assets\_Scripts\IManager.cs" />
+    <Compile Include="Assets\_Scripts\Inventory.cs" />
     <Compile Include="Assets\_Scripts\ItemPickup.cs" />
     <Compile Include="Assets\_Scripts\MyFirstScript.cs" />
     <Compile Include="Assets\_Scripts\MySecondScript.cs" />

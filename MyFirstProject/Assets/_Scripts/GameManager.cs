@@ -2,8 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+using CustomExtensions;
+
+//type alias
+using JBInt = System.Int16;
+
+public class GameManager : MonoBehaviour, IManager
 {
+
+    public delegate void DebugFromDelegate(string text);
+
+    public DebugFromDelegate debug = Print;
+
+    public static void Print(string text){
+        Debug.Log(text);
+    }
+
+
+    public void LogWithMyDelegate(DebugFromDelegate del)
+    {
+        del("Estoy en un método");
+    }
 
     public string labelText = "Recolecta los 4 ítems y gánate la libertad!";
     public const int MAX_ITEMS = 4;
@@ -42,8 +61,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int _playerHP = 3;
-    public int HP
+    private JBInt _playerHP = 3;
+    public JBInt HP
     {
         get{
             return _playerHP;
@@ -61,6 +80,46 @@ public class GameManager : MonoBehaviour
             }
             Debug.LogFormat("Vidas: {0}", _playerHP);
         }
+    }
+
+    /*
+        Implementación de la Interface IManager
+    */
+    private string _state;
+    public string State{
+        get{
+            return _state;
+        }
+
+        set{
+            _state = value;
+        }
+    }
+
+    public void Initialize(){
+        _state = "Manager inicializado";
+        _state.JuanGabrielDebug();
+
+
+        debug("hola");
+        LogWithMyDelegate(debug);
+    }
+    //Fin de la implementación de Interface IManager
+
+
+    private void Start()
+    {
+        Initialize();
+
+
+        GameObject player = GameObject.Find("Player");
+        PlayerController playerController = 
+            player.GetComponent<PlayerController>();
+        playerController.playerJump += PlayerJumpHandler;
+    }
+
+    public void PlayerJumpHandler(){
+        Debug.Log("El jugador ha saltado");
     }
 
     private void GameOver(bool gameWon){
@@ -100,7 +159,20 @@ public class GameManager : MonoBehaviour
                                    400, 200),
                           message))
         {
-            Utilities.RestartLevel();
+            try
+            {
+                //Código a ejecutar si no da error
+                Utilities.RestartLevel(-7);
+                debug("He podido reiniciar la escena");
+            }catch(System.ArgumentException e){
+                //Alternativa por si el código del try da error
+                Utilities.RestartLevel();
+                debug("Reiniciando la escena número 0 debido al error: "
+                      + e.ToString());
+            }finally{
+                //Tanto si hay error como si no, código para finalizar
+                debug("De cualquier modo, hemos podido reiniciar la escena");
+            }
         }
     }
 

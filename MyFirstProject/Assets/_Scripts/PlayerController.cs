@@ -32,6 +32,13 @@ public class PlayerController : MonoBehaviour
 
     private GameManager gameManager;
 
+    //Delegados y Eventos
+    public delegate void JumpEvent();
+    public event JumpEvent playerJump;
+
+
+
+
     //Métodos
 
     // Start is called before the first frame update
@@ -85,6 +92,7 @@ public class PlayerController : MonoBehaviour
 
         if(IsOnTheGround() && Input.GetKeyDown(KeyCode.Space)){
             _rb.AddForce(Vector3.up * jumpSpeed,ForceMode.Impulse);
+            playerJump();
         }
 
     }
