@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/JuanGabriel/Developer/Unity Projects/cursos-unity-2019/Legend of Selda/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
