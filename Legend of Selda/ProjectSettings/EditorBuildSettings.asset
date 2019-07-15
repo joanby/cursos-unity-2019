@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Village Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Forest Scene.unity
+    guid: 5f202989712314025a612c00a52186ff
+  - enabled: 1
+    path: Assets/Scenes/House Interior.unity
+    guid: e97bc2669e2ff408bbeb782af952f513
   m_configObjects: {}

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public static bool playerCreated;
+
     public float speed = 5.0f;
     private bool walking = false;
     public Vector2 lastMovement = Vector2.zero;
@@ -23,6 +26,8 @@ public class PlayerController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        playerCreated = true;
     }
 
     // Update is called once per frame
