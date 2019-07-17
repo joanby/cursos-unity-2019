@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/House Interior.unity
     guid: e97bc2669e2ff408bbeb782af952f513
+  - enabled: 1
+    path: Assets/Scenes/Witch Scene.unity
+    guid: b594378bf2c134554b4f66e1109abc71
   m_configObjects: {}

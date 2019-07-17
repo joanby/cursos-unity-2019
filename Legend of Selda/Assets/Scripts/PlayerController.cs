@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator _animator;
     private Rigidbody2D _rigidbody;
+    public string nextUuid;
+
 
     // Start is called before the first frame update
     void Start()
