@@ -8,6 +8,7 @@ public class WeaponDamage : MonoBehaviour
     public int damage;
 
     public GameObject bloodAnim;
+    public GameObject canvasDamage;
     private GameObject hitPoint;
 
     private void Start()
@@ -25,6 +26,14 @@ public class WeaponDamage : MonoBehaviour
                             hitPoint.transform.position,
                             hitPoint.transform.rotation), 0.5f);
             }
+
+
+            var clone = (GameObject)Instantiate(canvasDamage,
+                                                 hitPoint.transform.position,
+                                                 Quaternion.Euler(Vector3.zero));
+
+            clone.GetComponent<DamageNumber>().damagePoints = damage;
+
             collision.gameObject.
                      GetComponent<HealthManager>().
                      DamageCharacter(damage);

@@ -124,6 +124,8 @@ MonoBehaviour:
   damage: 0
   bloodAnim: {fileID: 734732534321992820, guid: 08889fb3a84e34a48a1a7fd0153d88ae,
     type: 3}
+  canvasDamage: {fileID: 34186742867967468, guid: 066a5a144c91b41dcaf4b8375a87bc47,
+    type: 3}
 --- !u!1 &2553803323652672948
 GameObject:
   m_ObjectHideFlags: 0
