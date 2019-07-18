@@ -8,12 +8,15 @@ public class PlayerController : MonoBehaviour
     public static bool playerCreated;
 
     public float speed = 5.0f;
+
     private bool walking = false;
+    private bool attacking = false;
     public Vector2 lastMovement = Vector2.zero;
 
     private const string AXIS_H = "Horizontal", 
                          AXIS_V = "Vertical",
                          WALK = "Walking", 
+                         ATT = "Attacking",
                          LAST_H = "LastH", 
                          LAST_V = "LastV";
 
@@ -21,6 +24,9 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D _rigidbody;
     public string nextUuid;
+
+    public float attackTime;
+    private float attackTimeCounter;
 
 
     // Start is called before the first frame update
@@ -37,13 +43,34 @@ public class PlayerController : MonoBehaviour
     {
         this.walking = false;
 
+        if (attacking)
+        {
+            attackTimeCounter -= Time.deltaTime;
+            if(attackTimeCounter < 0){
+                attacking = false;
+                _animator.SetBool(ATT, false);
+            }
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                attacking = true;
+                attackTimeCounter = attackTime;
+                _rigidbody.velocity = Vector2.zero;
+                _animator.SetBool(ATT, true);
+            }
+        }
+
+
+
         //S = V*t
         if(Mathf.Abs(Input.GetAxisRaw(AXIS_H))>0.2f){
             //Vector3 translation = new Vector3(
             //    Input.GetAxisRaw(AXIS_H) * this.speed * Time.deltaTime, 0, 0);
             //this.transform.Translate(translation);
-            _rigidbody.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * this.speed,
-                                              _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(Input.GetAxisRaw(AXIS_H),
+                                              _rigidbody.velocity.y).normalized*speed;
             this.walking = true;
             lastMovement = new Vector2(Input.GetAxisRaw(AXIS_H), 0);
         }
@@ -54,12 +81,12 @@ public class PlayerController : MonoBehaviour
             //    Input.GetAxisRaw(AXIS_V) * this.speed * Time.deltaTime, 0);
             //this.transform.Translate(translation);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x,
-                                              Input.GetAxisRaw(AXIS_V) * speed);
+                                              Input.GetAxisRaw(AXIS_V)).normalized*speed;
             this.walking = true;
             lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
         }
 
-
+       
     }
 
     private void LateUpdate()
