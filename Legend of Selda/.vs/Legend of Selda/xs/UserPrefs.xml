@@ -1,17 +1,24 @@
 ﻿<Properties StartupConfiguration="{EA0FD8C6-ABFA-5E74-6BEE-2909678127AD}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DestroyAfterTime.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NPCDialogue.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="82" Column="53" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="7" Column="37" />
       <File FileName="Assets/Scripts/CameraFollow.cs" Line="28" Column="33" />
       <File FileName="Assets/Scripts/GoToNewPlace.cs" Line="28" Column="69" />
       <File FileName="Assets/Scripts/DontDestroyOnLoad.cs" Line="15" Column="10" />
       <File FileName="Assets/Scripts/StartPoint.cs" Line="28" Column="9" />
-      <File FileName="Assets/Scripts/EnemyController.cs" Line="22" Column="1" />
-      <File FileName="Assets/Scripts/DamagePlayer.cs" Line="39" Column="8" />
-      <File FileName="Assets/Scripts/HealthManager.cs" Line="8" Column="1" />
-      <File FileName="Assets/Scripts/WeaponDamage.cs" Line="24" Column="36" />
+      <File FileName="Assets/Scripts/EnemyController.cs" Line="38" Column="32" />
+      <File FileName="Assets/Scripts/DamagePlayer.cs" Line="38" Column="1" />
+      <File FileName="Assets/Scripts/HealthManager.cs" Line="55" Column="35" />
+      <File FileName="Assets/Scripts/WeaponDamage.cs" Line="4" Column="1" />
       <File FileName="Assets/Scripts/DamageNumber.cs" Line="16" Column="39" />
-      <File FileName="Assets/Scripts/DestroyAfterTime.cs" Line="17" Column="6" />
+      <File FileName="Assets/Scripts/DestroyAfterTime.cs" Line="7" Column="31" />
+      <File FileName="Assets/Scripts/UIManager.cs" Line="119" Column="1" />
+      <File FileName="Assets/Scripts/CharacterStats.cs" Line="40" Column="66" />
+      <File FileName="Assets/Scripts/WeaponManager.cs" Line="24" Column="41" />
+      <File FileName="Assets/Scripts/InventoryButton.cs" Line="6" Column="45" />
+      <File FileName="Assets/Scripts/NPCMovement.cs" Line="24" Column="1" />
+      <File FileName="Assets/Scripts/DialogueManager.cs" Line="16" Column="32" />
+      <File FileName="Assets/Scripts/NPCDialogue.cs" Line="8" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8359470292272645674}
   - component: {fileID: 1039593180}
   - component: {fileID: 5555522922597662392}
+  - component: {fileID: 1014639590}
+  - component: {fileID: 3583857367958727008}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -168,4 +170,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c18e1321f3c4fe5a358eb64ebeeddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToRevivePlayer: 2
+  damage: 10
+  canvasDamage: {fileID: 34186742867967468, guid: 066a5a144c91b41dcaf4b8375a87bc47,
+    type: 3}
+--- !u!114 &1014639590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7670012162378991261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3794e85c0b68c4beaaa3f9ca9868ef7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 15
+  currentHealth: 0
+  flashActive: 0
+  flashLength: 0
+  expWhenDefeated: 10
+--- !u!114 &3583857367958727008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7670012162378991261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a732d4039373d4727b68c5135fd4bb5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  exp: 0
+  expToLevelUp: 000000000000000000000000
+  hpLevels: 0a0000001400000032000000
+  strengthLevels: 0a0000000f00000019000000
+  defenseLevels: 000000000a00000019000000
+  speedLevels: 000000000a00000014000000
+  luckLevels: 00000000050000000a000000
+  accuracyLevels: 05000000080000000a000000

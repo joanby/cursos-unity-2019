@@ -99,5 +99,10 @@ PrefabInstance:
       propertyPath: timeToMakeStep
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3583857367958727008, guid: 434cfa82ae28d4e70b687a7be1709195,
+        type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 434cfa82ae28d4e70b687a7be1709195, type: 3}

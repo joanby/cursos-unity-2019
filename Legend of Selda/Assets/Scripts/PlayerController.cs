@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterStats))]
+[RequireComponent(typeof(HealthManager))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+
+    public bool canMove = true;
+
+    public bool isTalking;
 
     public static bool playerCreated;
 
@@ -36,12 +43,23 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
 
         playerCreated = true;
+        isTalking = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(isTalking){
+            _rigidbody.velocity = Vector2.zero;
+            return;
+        }
+
         this.walking = false;
+
+        if (!canMove)
+        {
+            return;
+        }
 
         if (attacking)
         {
