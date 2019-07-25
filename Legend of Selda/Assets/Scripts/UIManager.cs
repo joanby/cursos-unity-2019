@@ -16,12 +16,13 @@ public class UIManager : MonoBehaviour
     public HealthManager playerHealthManager;
     public CharacterStats playerStats;
     private WeaponManager weaponManager;
-
+    private ItemsManager itemsManager;
 
 
     private void Start()
     {
         weaponManager = FindObjectOfType<WeaponManager>();
+        itemsManager = FindObjectOfType<ItemsManager>();
         inventoryPanel.SetActive(false);
         menuPanel.SetActive(false);
     }
@@ -65,8 +66,10 @@ public class UIManager : MonoBehaviour
 
     public GameObject inventoryPanel, menuPanel;
     public Button inventoryButton;
+    public Text inventoryText;
 
     public void ToggleInventory(){
+        inventoryText.text = "";
         inventoryPanel.SetActive(!inventoryPanel.activeInHierarchy);
         menuPanel.SetActive(!menuPanel.activeInHierarchy);
         if(inventoryPanel.activeInHierarchy){
@@ -80,15 +83,26 @@ public class UIManager : MonoBehaviour
     public void FillInventory(){
         List<GameObject> weapons = weaponManager.GetAllWeapons();
         int i = 0;
+
         foreach(GameObject w in weapons){
-            Button tempB = Instantiate(inventoryButton, inventoryPanel.transform);
-            tempB.GetComponent<InventoryButton>().type = InventoryButton.ItemType.WEAPON;
-            tempB.GetComponent<InventoryButton>().itemIdx = i;
-            tempB.onClick.AddListener(() => tempB.GetComponent<InventoryButton>().ActivateButton());
-            tempB.image.sprite = w.GetComponent<SpriteRenderer>().sprite;
+            AddItemToInventory(w, InventoryButton.ItemType.WEAPON, i);
             i++;
         }
 
+        i = 0;
+        List<GameObject> keyItems = itemsManager.GetQuestItems();
+        foreach(GameObject item in keyItems){
+            AddItemToInventory(item, InventoryButton.ItemType.SPECIAL_ITEMS, i);
+            i++;
+        }
+    }
+
+    private void AddItemToInventory(GameObject item, InventoryButton.ItemType type, int pos){
+        Button tempB = Instantiate(inventoryButton, inventoryPanel.transform);
+        tempB.GetComponent<InventoryButton>().type = type;
+        tempB.GetComponent<InventoryButton>().itemIdx = pos;
+        tempB.onClick.AddListener(() => tempB.GetComponent<InventoryButton>().ActivateButton());
+        tempB.image.sprite = item.GetComponent<SpriteRenderer>().sprite;
     }
 
     public void ShowOnly(int type){

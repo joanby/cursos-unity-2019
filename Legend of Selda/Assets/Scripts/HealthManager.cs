@@ -12,6 +12,13 @@ public class HealthManager : MonoBehaviour
         get{
             return currentHealth;
         }
+        set{
+            if(value < 0){
+                currentHealth = 0;
+            }else{
+                currentHealth = value;
+            }
+        }
     }
 
     public bool flashActive;
@@ -22,22 +29,34 @@ public class HealthManager : MonoBehaviour
 
     public int expWhenDefeated;
 
+    private QuestEnemy quest;
+    private QuestManager questManager;
 
     // Start is called before the first frame update
     void Start()
     {
         _characterRenderer = GetComponent<SpriteRenderer>();
         UpdateMaxHealth(maxHealth);
+        quest = GetComponent<QuestEnemy>();
+        questManager = FindObjectOfType<QuestManager>();
     }
 
     public void DamageCharacter(int damage){
-        currentHealth -= damage;
-        if(currentHealth <= 0){
+        SFXManager.SharedInstance.PlaySFX(SFXType.SoundType.HIT);
+
+        Health -= damage;
+        if(Health <= 0){
 
             if(gameObject.tag.Equals("Enemy")){
                 GameObject.Find("Player").
                           GetComponent<CharacterStats>().
                           AddExperience(expWhenDefeated);
+                questManager.enemyKilled = quest;
+            }
+
+            if(gameObject.name.Equals("Player")){
+                SFXManager.SharedInstance.PlaySFX(SFXType.SoundType.DIE);
+                //TODO: implementar Game Over
             }
 
             gameObject.SetActive(false);
@@ -52,7 +71,7 @@ public class HealthManager : MonoBehaviour
 
     public void UpdateMaxHealth(int newMaxHealth){
         maxHealth = newMaxHealth;
-        currentHealth = maxHealth;
+        Health = maxHealth;
     }
 
     void ToggleColor(bool visible){

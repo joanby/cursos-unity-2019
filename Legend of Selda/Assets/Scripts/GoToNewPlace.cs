@@ -25,6 +25,10 @@ public class GoToNewPlace : MonoBehaviour
         {
             if (!needsClick || (needsClick && Input.GetMouseButtonDown(0)))
             {
+                if(needsClick){
+                    SFXManager.SharedInstance.PlaySFX(SFXType.SoundType.KNOCK);
+                }
+
                 FindObjectOfType<PlayerController>().nextUuid = uuid;
                 SceneManager.LoadScene(newPlaceName);
             }

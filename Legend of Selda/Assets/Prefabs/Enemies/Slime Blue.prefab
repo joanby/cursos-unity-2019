@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4086808265189558827, guid: 434cfa82ae28d4e70b687a7be1709195,
+        type: 3}
+      propertyPath: enemyName
+      value: Blue Slime
+      objectReference: {fileID: 0}
     - target: {fileID: 7670012162378991261, guid: 434cfa82ae28d4e70b687a7be1709195,
         type: 3}
       propertyPath: m_Name

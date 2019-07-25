@@ -1,24 +1,30 @@
 ﻿<Properties StartupConfiguration="{EA0FD8C6-ABFA-5E74-6BEE-2909678127AD}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NPCDialogue.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HealthManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="7" Column="37" />
-      <File FileName="Assets/Scripts/CameraFollow.cs" Line="28" Column="33" />
-      <File FileName="Assets/Scripts/GoToNewPlace.cs" Line="28" Column="69" />
-      <File FileName="Assets/Scripts/DontDestroyOnLoad.cs" Line="15" Column="10" />
-      <File FileName="Assets/Scripts/StartPoint.cs" Line="28" Column="9" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="76" Column="68" />
       <File FileName="Assets/Scripts/EnemyController.cs" Line="38" Column="32" />
       <File FileName="Assets/Scripts/DamagePlayer.cs" Line="38" Column="1" />
-      <File FileName="Assets/Scripts/HealthManager.cs" Line="55" Column="35" />
-      <File FileName="Assets/Scripts/WeaponDamage.cs" Line="4" Column="1" />
+      <File FileName="Assets/Scripts/HealthManager.cs" Line="74" Column="15" />
+      <File FileName="Assets/Scripts/WeaponDamage.cs" Line="11" Column="1" />
       <File FileName="Assets/Scripts/DamageNumber.cs" Line="16" Column="39" />
-      <File FileName="Assets/Scripts/DestroyAfterTime.cs" Line="7" Column="31" />
-      <File FileName="Assets/Scripts/UIManager.cs" Line="119" Column="1" />
+      <File FileName="Assets/Scripts/UIManager.cs" Line="67" Column="27" />
       <File FileName="Assets/Scripts/CharacterStats.cs" Line="40" Column="66" />
-      <File FileName="Assets/Scripts/WeaponManager.cs" Line="24" Column="41" />
-      <File FileName="Assets/Scripts/InventoryButton.cs" Line="6" Column="45" />
-      <File FileName="Assets/Scripts/NPCMovement.cs" Line="24" Column="1" />
-      <File FileName="Assets/Scripts/DialogueManager.cs" Line="16" Column="32" />
-      <File FileName="Assets/Scripts/NPCDialogue.cs" Line="8" Column="2" />
+      <File FileName="Assets/Scripts/WeaponManager.cs" Line="32" Column="54" />
+      <File FileName="Assets/Scripts/ItemsManager.cs" Line="17" Column="1" />
+      <File FileName="Assets/Scripts/InventoryButton.cs" Line="60" Column="63" />
+      <File FileName="Assets/Scripts/NPCMovement.cs" Line="46" Column="56" />
+      <File FileName="Assets/Scripts/DialogueManager.cs" Line="36" Column="51" />
+      <File FileName="Assets/Scripts/NPCDialogue.cs" Line="58" Column="68" />
+      <File FileName="Assets/Scripts/QuestManager.cs" Line="18" Column="43" />
+      <File FileName="Assets/Scripts/Quest.cs" Line="46" Column="60" />
+      <File FileName="Assets/Scripts/QuestTrigger.cs" Line="56" Column="62" />
+      <File FileName="Assets/Scripts/QuestItem.cs" Line="27" Column="1" />
+      <File FileName="Assets/Scripts/QuestEnemy.cs" Line="8" Column="24" />
+      <File FileName="Assets/Scripts/CameraFollow.cs" Line="24" Column="58" />
+      <File FileName="Assets/Scripts/CameraLimits.cs" Line="5" Column="42" />
+      <File FileName="Assets/Scripts/SFXManager.cs" Line="31" Column="5" />
+      <File FileName="Assets/Scripts/GoToNewPlace.cs" Line="29" Column="72" />
+      <File FileName="Assets/Scripts/SFXType.cs" Line="5" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
