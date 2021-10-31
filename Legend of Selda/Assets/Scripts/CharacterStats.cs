@@ -52,7 +52,7 @@ public class CharacterStats : MonoBehaviour
             return;
         }
 
-        if (exp >= expToLevelUp[level])
+        if (this.exp >= expToLevelUp[level])
         {
             level++;
             healthManager.UpdateMaxHealth(hpLevels[level]);
